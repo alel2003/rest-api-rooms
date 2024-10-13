@@ -50,3 +50,9 @@ sudo ./migrate.sh
 docker exec -it <id> shell
 python3 manage.py createsuperuser
 ```
+
+### 6. Running tests
+
+```bash
+docker compose exec web python manage.py test
+```
