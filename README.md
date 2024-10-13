@@ -40,7 +40,7 @@ docker compose up -d --build
 ### 4. Database create migration
 
 ```bash
-chmod +x <migrate.sh>
+chmod +x migrate.sh
 sudo ./migrate.sh
 ```
 
