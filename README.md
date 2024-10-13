@@ -11,8 +11,8 @@ Follow these steps to get up and running with the Rooms-API on your local machin
 Start by cloning the repository:
 
 ```bash
-git clone https://github.com/your-repo/Base-api.git
-cd book-api
+git clone https://github.com/alel2003/rest-api-rooms
+cd rest-api-rooms
 ```
 
 ### 2. Create a virtual environment
