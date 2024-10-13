@@ -1,10 +1,10 @@
-# Base-API
+# Rooms-API
 
-**Base-api** is a RESTful API project created for use by underlying configurations. The project is developed using **Django**, **Django REST Framework** and **PostgreSQL** as the database.
+**Rooms-api** is a RESTful API project created to utilise room booking accounting. The project is developed using **Django**, **Docker**, **Django REST Framework** and **PostgreSQL** as the database.
 
 ## 🚀 Quick Start
 
-Follow these steps to get up and running with the Base-API on your local machine.
+Follow these steps to get up and running with the Rooms-API on your local machine.
 
 ### 1. Clone the Repository
 
@@ -31,29 +31,22 @@ env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Create a PostgreSQL Database and User
+### 3. Docker container launch
 
 ```bash
-sudo -u postgres psql
-CREATE DATABASE myproject;
-CREATE USER myprojectuser WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+docker compose up -d --build
 ```
 
-### 4. Apply Database Migrations
+### 4. Database create migration
 
 ```bash
-python3 manage.py migrate
+chmod +x <migrate.sh>
+sudo ./migrate.sh
 ```
 
-### 5. Create a Superuser
+### 5. Create superuser admin
 
 ```bash
+docker exec -it <id> shell
 python3 manage.py createsuperuser
-```
-
-### 6. Run the Development Server
-
-```bash
-python3 manage.py runserver
 ```
