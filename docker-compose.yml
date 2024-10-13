@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: booking_api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: "python3 manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/var/www/app
+    depends_on:
+      - db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - app_network
+
+  db:
+    container_name: booking_db
+    image: postgres:15.0-alpine
+    environment:
+      POSTGRES_USER: ${USER_DB}
+      POSTGRES_PASSWORD: ${PASSWORD_DB}
+      POSTGRES_DB: ${NAME_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge
